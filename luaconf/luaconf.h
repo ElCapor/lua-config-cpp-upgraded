@@ -18,7 +18,6 @@ bool ParseTable(lua_State *L, Value &table) {
 	while (lua_next(L, -2)) {
 		// value | key | table
 		Value key, value;
-		bool ret = ParseValue(L, -2, key);
 		if (ParseValue(L, -2, key)) {
 			if (key.Type() == ValueType::TYPE_STRING) {
 				// table -> object
