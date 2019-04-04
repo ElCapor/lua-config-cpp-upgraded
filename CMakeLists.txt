@@ -23,3 +23,5 @@ set(luaconf_src luaconf/value.h luaconf/luaconf.h)
 
 add_executable(luaconfig test/main.cc ${luaconf_src})
 target_link_libraries(luaconfig liblua_static)
+
+install(DIRECTORY luaconf/ DESTINATION include/luaconf FILES_MATCHING PATTERN "*.h")
