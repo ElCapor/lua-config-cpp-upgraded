@@ -1,3 +1,4 @@
+-- use common as reference
 common_sampler = {
     address_u = "WRAP",
     address_v = "WRAP",
@@ -7,6 +8,7 @@ common_sampler = {
     maxfilter = "LINEAR",
 }
 
+-- function support, generate config dynamic
 function get_common_renderstate(test_var)
     return {
         cull_mode = "CULL_NONE",
