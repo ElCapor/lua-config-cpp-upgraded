@@ -84,7 +84,6 @@ bool ParseValue(lua_State *L, int index, Value &value) {
 		break;
 	default:
 		// not supported
-		printf("not supported");
 		return false;
 	}
 	return true;
@@ -98,7 +97,6 @@ inline bool Parse(std::string const& code, Value& value) {
 
 	
 	if (0 == luaL_dostring(L, code.c_str())) {
-		printf("??\n");
 		bool ret = detail::ParseValue(L, -1, value);
 		lua_close(L);
 		return ret;
@@ -114,7 +112,6 @@ inline bool ParseFile(std::string const& filepath, Value &value) {
 	if (!st.is_open()) {
 		return false;
 	}
-	printf(">>\n");
 	std::string str((std::istreambuf_iterator<char>(st)), std::istreambuf_iterator<char>());
 	return Parse(str, value);
 
