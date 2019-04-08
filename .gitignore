@@ -1,2 +1,4 @@
-lua
 .vs
+lua/source
+lua/build
+lua/install

@@ -15,13 +15,24 @@ set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 set(BUILD_SHARED_LIBS "Build shared libs" OFF)
 
 
-include_directories(lua/install/include)
-link_directories(lua/install/lib)
+find_package(Lua)
+if (NOT LUA_FOUND)
+	message("include lua/install for liblua")
+	set(CMAKE_PREFIX_PATH lua/install)
+endif()
+
+# find lua again, fatal if cant find it again
+find_package(Lua)
+if (NOT LUA_FOUND) 
+	message(FATAL_ERROR "lua not found!")
+endif()
+
+include_directories(${LUA_INCLUDE_DIR})
 
 
 set(luaconf_src luaconf/value.h luaconf/luaconf.h)
 
 add_executable(luaconfig test/main.cc ${luaconf_src})
-target_link_libraries(luaconfig liblua_static)
+target_link_libraries(luaconfig ${LUA_LIBRARIES})
 
 install(DIRECTORY luaconf/ DESTINATION include/luaconf FILES_MATCHING PATTERN "*.h")

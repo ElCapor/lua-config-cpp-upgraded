@@ -1,0 +1,15 @@
+source: source
+build: build
+install: install
+
+cmake_args:
+  - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+  - -DBUILD_SHARED_LIBS=OFF
+  
+depends:
+  ninja: # must
+    git: https://github.com/ninja-build/ninja
+    tag: v1.9.0
+  lua:
+    git: https://github.com/LuaDist/lua.git
+    tag: lua-5.3
