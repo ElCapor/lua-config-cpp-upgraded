@@ -2,8 +2,13 @@
 #include <string>
 #include <fstream>
 #include <iostream>
-
-#include <lua.hpp>
+extern "C"
+{
+#include <lua.h>
+#include <lauxlib.h>
+#include <luajit.h>
+#include <lualib.h>
+}
 
 #include "value.h"
 

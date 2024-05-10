@@ -1,3 +1,10 @@
+ # Fork Note , tweaking this to fit my needs
+ Changes (NOW & UPCOMING):
+    - delete buildsystem
+    - adapt for luajit
+    - add a way to rewrite config
+
+
 # lua-config-cpp
 use lua as config file
 
